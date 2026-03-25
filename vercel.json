@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/slack/commands", "destination": "/api/slack/commands" }
+  ]
+}
