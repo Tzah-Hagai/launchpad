@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/slack/commands", "destination": "/api/slack/commands" }
+    { "source": "/slack/commands", "destination": "/api/slack/commands" },
+    { "source": "/slack/interactive", "destination": "/api/slack/interactive" }
   ]
 }
