@@ -66,7 +66,7 @@ const blocks = [
     type: "section",
     text: {
       type: "mrkdwn",
-      text: "*Launchpad* — quick links for this task:",
+      text: "*Launchpad* — quick links for this channel:",
     },
   },
   {
