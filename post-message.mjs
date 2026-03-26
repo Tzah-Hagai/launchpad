@@ -116,4 +116,27 @@ if (!data.ok) {
   process.exit(1);
 }
 
-console.log("Posted:", data.ts, "in", channel);
+const pinRes = await fetch("https://slack.com/api/pins.add", {
+  method: "POST",
+  headers: {
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json; charset=utf-8",
+  },
+  body: JSON.stringify({
+    channel,
+    timestamp: data.ts,
+  }),
+});
+const pinData = await pinRes.json();
+
+if (!pinData.ok) {
+  console.log("Posted:", data.ts, "in", channel);
+  console.log(
+    "Pinning failed:",
+    pinData.error,
+    "(add `pins:write` scope and reinstall app, or pin manually)",
+  );
+  process.exit(0);
+}
+
+console.log("Posted and pinned:", data.ts, "in", channel);
